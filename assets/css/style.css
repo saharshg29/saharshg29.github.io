@@ -899,4 +899,154 @@ pre {
     .page-header h1 {
         font-size: 2rem;
     }
+
+    /* Hide desktop controls on mobile */
+    .desktop-only {
+        display: none !important;
+    }
+
+    /* Show mobile controls */
+    .mobile-only {
+        display: block;
+    }
+}
+
+/* Mobile Only Elements - Hidden by Default */
+.mobile-only {
+    display: none;
+}
+
+/* --- MOBILE FAB (Floating Action Button) --- */
+#filter-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#filter-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* --- MOBILE BACKDROP --- */
+#filter-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+#filter-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- MOBILE BOTTOM SHEET --- */
+#filter-sheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 80vh;
+    background: var(--bg-secondary);
+    border-radius: 20px 20px 0 0;
+    z-index: 1002;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-out;
+    overflow-y: auto;
+}
+
+#filter-sheet.active {
+    transform: translateY(0);
+}
+
+.sheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.sheet-header button {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-meta);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.sheet-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sheet-content .search-box {
+    width: 100%;
+    max-width: 100%;
+}
+
+.sheet-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.sheet-tabs .tab-button {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Mobile Calendar in Sheet */
+#calendar-wrapper-mobile {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+#calendar-header-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+#calendar-header-mobile button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-meta);
+    font-size: 1.1rem;
+}
+
+#calendar-grid-mobile {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
 }
