@@ -527,13 +527,46 @@ body {
 }
 
 /* --- BLOGS PAGE STYLES --- */
-.controls-area {
+/* Garden Header Overhaul */
+.garden-header {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
     gap: 2rem;
     margin-bottom: 2rem;
-    align-items: flex-start;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
 }
+
+.header-text {
+    flex: 1;
+}
+
+.garden-controls {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.search-box {
+    max-width: 400px;
+}
+
+.garden-tabs {
+    display: inline-flex;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 3px;
+    width: fit-content;
+}
+
+.garden-tabs .tab-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
 
 .search-container {
     flex: 1;
@@ -626,15 +659,42 @@ body {
     bottom: 4px;
 }
 
-/* Tabs */
-.tabs {
-    display: inline-flex;
-    gap: 0;
-    margin-bottom: 2rem;
+/* Post List Scrollable */
+.post-list-container {
     background: var(--bg-secondary);
-    border-radius: 8px;
-    padding: 4px;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
 }
+
+.post-list {
+    max-height: 400px;
+    /* Approx 5 items + padding */
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+/* Custom Scrollbar */
+.post-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.post-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.post-list::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
+
+#empty-state {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--text-meta);
+    font-size: 0.95rem;
+}
+
 
 .tab-button {
     background: none;

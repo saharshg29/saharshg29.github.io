@@ -2,15 +2,25 @@
 layout: default
 ---
 
-<section class="page-header reveal">
-    <h1>Digital Garden</h1>
-    <p class="page-subtitle">Essays, engineering logs, and reflections.</p>
-</section>
+<section class="page-header garden-header reveal">
+    <div class="header-text">
+        <h1>Digital Garden</h1>
+        <p class="page-subtitle">Essays, engineering logs, and reflections.</p>
 
-<div class="controls-area">
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search garden..." autocomplete="off">
+        <div class="garden-controls">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search garden..." autocomplete="off">
+            </div>
+            <div class="garden-tabs">
+                <button class="tab-button active" data-tab="all">All</button>
+                <button class="tab-button" data-tab="essays">Essays</button>
+                <button class="tab-button" data-tab="engineering">Engineering</button>
+                <button class="tab-button" data-tab="reflections">Reflections</button>
+                <button class="tab-button" data-tab="journals">Journal</button>
+            </div>
+        </div>
     </div>
+
     <div id="calendar-wrapper">
         <div id="calendar-header">
             <button id="prev-month">&lt;</button>
@@ -19,18 +29,13 @@ layout: default
         </div>
         <div id="calendar-grid"></div>
     </div>
-</div>
-
-<div class="tabs">
-    <button class="tab-button active" data-tab="all">All</button>
-    <button class="tab-button" data-tab="essays">Essays</button>
-    <button class="tab-button" data-tab="engineering">Engineering</button>
-    <button class="tab-button" data-tab="reflections">Reflections</button>
-    <button class="tab-button" data-tab="journals">Journal</button>
-</div>
+</section>
 
 <div class="post-list-container">
     <div class="post-list">
+        <div id="empty-state" style="display: none;">
+            <p>No posts found matching your criteria. Try adjusting your search or filters.</p>
+        </div>
         <!-- Essays -->
         {% for post in site.essays %}
         <div class="post-item reveal" style="transition-delay: {{ forloop.index0 | times: 50 | plus: 100 }}ms;"
@@ -121,6 +126,7 @@ layout: default
             const activeTab = document.querySelector(`.tab-button[data-tab="${currentFilter.category}"]`);
             if (activeTab) activeTab.classList.add('active');
 
+            let visibleCount = 0;
             posts.forEach(post => {
                 const category = post.getAttribute('data-category');
                 const date = post.getAttribute('data-date');
@@ -134,7 +140,8 @@ layout: default
 
                 if (matchesCategory && matchesSearch && matchesDate) {
                     post.style.display = 'flex';
-                    // Show label only if in 'all' view AND not filtered by explicit other search
+                    visibleCount++;
+                    // Show label only if in 'all' view
                     if (currentFilter.category === 'all') {
                         if (label) label.style.display = 'inline-block';
                     } else {
@@ -144,6 +151,14 @@ layout: default
                     post.style.display = 'none';
                 }
             });
+
+            // Handle Empty State
+            const emptyState = document.getElementById('empty-state');
+            if (visibleCount === 0) {
+                emptyState.style.display = 'block';
+            } else {
+                emptyState.style.display = 'none';
+            }
 
             // Re-render calendar to show selection state
             renderCalendar(currentDate);
