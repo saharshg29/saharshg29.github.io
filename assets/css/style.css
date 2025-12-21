@@ -1,0 +1,43 @@
+/* Typography: Serif for reading, Sans for metadata */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap');
+
+:root {
+    --bg: #fdfdfc;
+    --text: #1a1a1a;
+    --light-text: #666;
+    --accent: #222;
+    --width: 680px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.75;
+    margin: 0;
+    padding: 2rem;
+    text-rendering: optimizeLegibility;
+}
+
+header, main, footer {
+    max-width: var(--width);
+    margin: 0 auto;
+}
+
+h1, h2, h3, .serif {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    margin-top: 2.5rem;
+}
+
+a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--light-text); }
+
+.post-meta { font-size: 0.9rem; color: var(--light-text); margin-bottom: 0.5rem; }
+.section-title { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 4rem; }
+
+article { margin-bottom: 5rem; }
+article p { margin-bottom: 1.5rem; font-size: 1.15rem; }
+
+/* Code blocks for your technical notes */
+pre { background: #f4f4f4; padding: 1rem; overflow-x: auto; border-radius: 4px; font-size: 0.9rem; }

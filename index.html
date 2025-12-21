@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<h2 class="section-title">Essays & Engineering</h2>
+{% for post in site.categories.Engineering %}
+    <div style="margin-bottom: 1rem;">
+        <span class="post-meta">{{ post.date | date: "%b %d" }}</span> — 
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </div>
+{% endfor %}
+
+<h2 class="section-title">Reflections</h2>
+{% for post in site.categories.Reflection %}
+    <div style="margin-bottom: 1rem;">
+        <span class="post-meta">{{ post.date | date: "%b %d" }}</span> — 
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </div>
+{% endfor %}
+
+<h2 class="section-title">Daily Journal</h2>
+{% for post in site.categories.Journal %}
+    <div style="margin-bottom: 1rem;">
+        <span class="post-meta">{{ post.date | date: "%b %d" }}</span> — 
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </div>
+{% endfor %}

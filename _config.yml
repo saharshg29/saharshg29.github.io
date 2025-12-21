@@ -1,0 +1,9 @@
+title: Saharsh Gupta
+description: Engineering essays and personal reflections.
+author: Saharsh Gupta
+theme: minima # We will override this with our custom CSS
+plugins:
+  - jekyll-seo-tag # Automatically handles Google/Twitter SEO
+
+# Permalinks for clean URLs (e.g., /essays/title instead of .html)
+permalink: /:categories/:title/
