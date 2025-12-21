@@ -21,7 +21,7 @@ All your writing goes into the `content` folder. Choose the appropriate subfolde
 ---
 layout: post
 title: "Your Title Here"
-date: 2025-12-23
+date: 2025-12-23 14:30:00 +0000 # Optional. Any format works.
 description: "A short summary for the index page."
 status: "seed" # Options: seed, bud, evergreen
 ---
