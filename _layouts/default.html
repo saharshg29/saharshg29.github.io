@@ -17,6 +17,7 @@
                 <a href="/projects" class="nav-link">Projects</a>
                 <a href="/experience" class="nav-link">Experience</a>
                 <a href="/blogs" class="nav-link">Blogs</a>
+                <a href="/now" class="nav-link">Now</a>
             </div>
         </nav>
     </header>
@@ -25,7 +26,78 @@
     </main>
     <footer class="site-footer">
         <p>© {{ "now" | date: "%Y" }} Saharsh Gupta — Built with intention.</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.5;">Press <kbd
+                style="border: 1px solid var(--border); padding: 2px 4px; border-radius: 4px;">Cmd</kbd> + <kbd
+                style="border: 1px solid var(--border); padding: 2px 4px; border-radius: 4px;">K</kbd> to search</p>
     </footer>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay">
+        <div class="search-modal">
+            <div class="search-modal-header">
+                <input type="text" id="global-search-input" class="search-modal-input"
+                    placeholder="Type to search everything..." autocomplete="off">
+            </div>
+            <div id="global-search-results" class="search-results">
+                <!-- Dynamic results -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Command+K Search
+        const overlay = document.getElementById('search-overlay');
+        const searchInput = document.getElementById('global-search-input');
+        const resultsContainer = document.getElementById('global-search-results');
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                overlay.style.display = 'flex';
+                searchInput.focus();
+            }
+            if (e.key === 'Escape') {
+                overlay.style.display = 'none';
+            }
+        });
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) overlay.style.display = 'none';
+        });
+
+        // Simple Search Logic (Pages & Featured)
+        const searchableItems = [
+            { title: 'Home', url: '/', meta: 'Landing page' },
+            { title: 'Projects', url: '/projects', meta: 'Work showcase' },
+            { title: 'Experience', url: '/experience', meta: 'Career & Education' },
+            { title: 'Blogs', url: '/blogs', meta: 'Technical writing' },
+            { title: 'Now', url: '/now', meta: 'Current status' },
+            { title: 'Vidhi AI', url: '/projects', meta: 'Legal RAG system' },
+            { title: 'Turing.com', url: '/experience', meta: 'LLM Engineering role' }
+        ];
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            resultsContainer.innerHTML = '';
+            if (!query) return;
+
+            const filtered = searchableItems.filter(item =>
+                item.title.toLowerCase().includes(query) ||
+                item.meta.toLowerCase().includes(query)
+            );
+
+            filtered.forEach(item => {
+                const div = document.createElement('a');
+                div.href = item.url;
+                div.className = 'search-result-item';
+                div.innerHTML = `
+                    <span class="search-result-title">${item.title}</span>
+                    <span class="search-result-meta">${item.meta}</span>
+                `;
+                resultsContainer.appendChild(div);
+            });
+        });
+    </script>
 </body>
 
 </html>

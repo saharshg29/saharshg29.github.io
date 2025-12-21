@@ -1,0 +1,82 @@
+---
+layout: default
+title: "Now"
+---
+
+<section class="page-header reveal">
+    <h1>/now</h1>
+    <p class="page-subtitle">What I'm focused on at this moment.</p>
+</section>
+
+<section class="section reveal reveal-1">
+    <h2 class="section-heading">Current Focus</h2>
+    <div class="now-content">
+        <p>I'm currently based in Chennai/Remote, focusing on <strong>LLM Engineering</strong> and <strong>RAG
+                optimization</strong>.</p>
+        <ul class="now-list">
+            <li>🚀 Researching compact reasoning models (like Apriel-1.5-15B).</li>
+            <li>⚖️ Refining <strong>Vidhi AI</strong>'s legal reasoning capabilities.</li>
+            <li>📚 Studying reinforcement learning from human feedback (RLHF).</li>
+            <li>🪴 Nurturing my digital garden with engineering reflections.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="section reveal reveal-2">
+    <h2 class="section-heading">Reading</h2>
+    <p>Currently deep into <em>"Deep Learning"</em> by Ian Goodfellow and <em>"The Pragmatic Programmer"</em>.</p>
+</section>
+
+<section class="section reveal reveal-3">
+    <h2 class="section-heading">Status</h2>
+    <div class="status-box">
+        <span class="pulse-icon"></span>
+        <span>Open to interesting research collaborations in AI/ML.</span>
+    </div>
+</section>
+
+<style>
+    .now-list {
+        padding-left: 1.2rem;
+    }
+
+    .now-list li {
+        margin-bottom: 0.8rem;
+    }
+
+    .status-box {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+    }
+
+    .pulse-icon {
+        width: 8px;
+        height: 8px;
+        background: #4ade80;
+        border-radius: 50%;
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+        }
+
+        70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+        }
+
+        100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+        }
+    }
+</style>
