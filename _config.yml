@@ -1,9 +1,12 @@
 title: Saharsh Gupta
-description: Engineering essays and personal reflections.
+description: Machine Learning Engineer & Full-Stack Developer. Building intelligent systems at the intersection of AI and software engineering.
 author: Saharsh Gupta
-theme: minima 
-url: ""
+theme: minima
+url: "https://saharshgupta.com" # Placeholder
 baseurl: ""
+twitter_username: saharshg29
+github_username: saharshg29
+logo: /assets/logo.png # Placeholder
 plugins:
   - jekyll-seo-tag 
 

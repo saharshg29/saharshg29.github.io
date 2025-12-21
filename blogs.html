@@ -28,7 +28,8 @@ layout: default
     <div class="post-list">
         <!-- Essays -->
         {% for post in site.essays %}
-        <div class="post-item" data-category="essays" data-date="{{ post.date | date: '%Y-%m-%d' }}">
+        <div class="post-item reveal" style="transition-delay: {{ forloop.index0 | times: 50 | plus: 100 }}ms;"
+            data-category="essays" data-date="{{ post.date | date: '%Y-%m-%d' }}">
             <span class="post-meta">
                 {% if post.status == 'seed' %}<span class="status status-seed">Seed</span>{% elsif post.status == 'bud'
                 %}<span class="status status-bud">Bud</span>{% elsif post.status == 'evergreen' %}<span
@@ -42,7 +43,8 @@ layout: default
 
         <!-- Engineering -->
         {% for post in site.engineering %}
-        <div class="post-item" data-category="engineering" data-date="{{ post.date | date: '%Y-%m-%d' }}">
+        <div class="post-item reveal" style="transition-delay: {{ forloop.index0 | times: 50 | plus: 100 }}ms;"
+            data-category="engineering" data-date="{{ post.date | date: '%Y-%m-%d' }}">
             <span class="post-meta">
                 {% if post.status == 'seed' %"><span class="status status-seed">Seed</span>{% elsif post.status == 'bud'
                 %}<span class="status status-bud">Bud</span>{% elsif post.status == 'evergreen' %}<span
@@ -56,7 +58,8 @@ layout: default
 
         <!-- Reflections -->
         {% for post in site.reflections %}
-        <div class="post-item" data-category="reflections" data-date="{{ post.date | date: '%Y-%m-%d' }}">
+        <div class="post-item reveal" style="transition-delay: {{ forloop.index0 | times: 50 | plus: 100 }}ms;"
+            data-category="reflections" data-date="{{ post.date | date: '%Y-%m-%d' }}">
             <span class="post-meta">
                 {% if post.status == 'seed' %}<span class="status status-seed">Seed</span>{% elsif post.status == 'bud'
                 %><span class="status status-bud">Bud</span>{% elsif post.status == 'evergreen' %><span
@@ -70,7 +73,8 @@ layout: default
 
         <!-- Journals -->
         {% for post in site.journals %}
-        <div class="post-item" data-category="journals" data-date="{{ post.date | date: '%Y-%m-%d' }}">
+        <div class="post-item reveal" style="transition-delay: {{ forloop.index0 | times: 50 | plus: 100 }}ms;"
+            data-category="journals" data-date="{{ post.date | date: '%Y-%m-%d' }}">
             <span class="post-meta">
                 {% if post.status == 'seed' %}<span class="status status-seed">Seed</span>{% elsif post.status == 'bud'
                 %><span class="status status-bud">Bud</span>{% elsif post.status == 'evergreen' %><span
