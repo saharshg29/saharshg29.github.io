@@ -573,7 +573,7 @@ body {
     min-width: 200px;
 }
 
-#search-input {
+.search-input-sync {
     width: 100%;
     padding: 0.8rem;
     font-size: 1rem;
@@ -584,7 +584,7 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-#search-input:focus {
+.search-input-sync:focus {
     outline: none;
     border-color: var(--accent);
 }
