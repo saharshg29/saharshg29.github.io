@@ -16,7 +16,7 @@ layout: default
     <div class="post-item" data-category="essays">
         <span class="post-meta">{{ post.date | date: "%b %d" }}</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
-        <span class="category-label">Essay</span>
+        <span class="category-label" data-tab="essays">Essay</span>
     </div>
     {% endfor %}
 
@@ -25,7 +25,7 @@ layout: default
     <div class="post-item" data-category="engineering">
         <span class="post-meta">{{ post.date | date: "%b %d" }}</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
-        <span class="category-label">Engineering</span>
+        <span class="category-label" data-tab="engineering">Engineering</span>
     </div>
     {% endfor %}
 
@@ -34,7 +34,7 @@ layout: default
     <div class="post-item" data-category="reflections">
         <span class="post-meta">{{ post.date | date: "%b %d" }}</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
-        <span class="category-label">Reflection</span>
+        <span class="category-label" data-tab="reflections">Reflection</span>
     </div>
     {% endfor %}
 
@@ -43,7 +43,7 @@ layout: default
     <div class="post-item" data-category="journals">
         <span class="post-meta">{{ post.date | date: "%b %d" }}</span>
         <a href="{{ post.url }}">{{ post.title }}</a>
-        <span class="category-label">Journal</span>
+        <span class="category-label" data-tab="journals">Journal</span>
     </div>
     {% endfor %}
 </div>
@@ -52,32 +52,44 @@ layout: default
     document.addEventListener('DOMContentLoaded', () => {
         const tabs = document.querySelectorAll('.tab-button');
         const posts = document.querySelectorAll('.post-item');
+        const labels = document.querySelectorAll('.category-label');
 
+        // Filter function
+        function filterByCategory(category) {
+            tabs.forEach(t => t.classList.remove('active'));
+            const activeTab = document.querySelector(`.tab-button[data-tab="${category}"]`);
+            if (activeTab) activeTab.classList.add('active');
+
+            posts.forEach(post => {
+                const postCategory = post.getAttribute('data-category');
+                const label = post.querySelector('.category-label');
+
+                if (category === 'all') {
+                    post.style.display = 'flex';
+                    if (label) label.style.display = 'inline-block';
+                } else {
+                    if (postCategory === category) {
+                        post.style.display = 'flex';
+                        if (label) label.style.display = 'none';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Tab click handler
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                // Remove active class from all tabs
-                tabs.forEach(t => t.classList.remove('active'));
-                // Add active class to clicked tab
-                tab.classList.add('active');
+                filterByCategory(tab.getAttribute('data-tab'));
+            });
+        });
 
-                const category = tab.getAttribute('data-tab');
-
-                posts.forEach(post => {
-                    const postCategory = post.getAttribute('data-category');
-                    const label = post.querySelector('.category-label');
-
-                    if (category === 'all') {
-                        post.style.display = 'flex';
-                        if (label) label.style.display = 'inline-block'; // Show label in 'all' view
-                    } else {
-                        if (postCategory === category) {
-                            post.style.display = 'flex';
-                            if (label) label.style.display = 'none'; // Hide label in filtered view
-                        } else {
-                            post.style.display = 'none';
-                        }
-                    }
-                });
+        // Category label click handler
+        labels.forEach(label => {
+            label.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent bubbling to post-item link
+                filterByCategory(label.getAttribute('data-tab'));
             });
         });
     });
