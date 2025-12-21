@@ -2,26 +2,50 @@
 layout: default
 ---
 
-<h2 class="section-title">Essays & Engineering</h2>
-{% for post in site.categories.Engineering %}
-    <div style="margin-bottom: 1rem;">
-        <span class="post-meta">{{ post.date | date: "%b %d" }}</span> — 
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </div>
+<h2 class="section-title">Essays</h2>
+{% if site.essays.size > 0 %}
+{% for post in site.essays %}
+<div class="post-item">
+    <span class="post-meta">{{ post.date | date: "%b %d" }}</span> —
+    <a href="{{ post.url }}">{{ post.title }}</a>
+</div>
 {% endfor %}
+{% else %}
+<p class="empty-state">No essays yet.</p>
+{% endif %}
+
+<h2 class="section-title">Engineering</h2>
+{% if site.engineering.size > 0 %}
+{% for post in site.engineering %}
+<div class="post-item">
+    <span class="post-meta">{{ post.date | date: "%b %d" }}</span> —
+    <a href="{{ post.url }}">{{ post.title }}</a>
+</div>
+{% endfor %}
+{% else %}
+<p class="empty-state">No engineering notes yet.</p>
+{% endif %}
 
 <h2 class="section-title">Reflections</h2>
-{% for post in site.categories.Reflection %}
-    <div style="margin-bottom: 1rem;">
-        <span class="post-meta">{{ post.date | date: "%b %d" }}</span> — 
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </div>
+{% if site.reflections.size > 0 %}
+{% for post in site.reflections %}
+<div class="post-item">
+    <span class="post-meta">{{ post.date | date: "%b %d" }}</span> —
+    <a href="{{ post.url }}">{{ post.title }}</a>
+</div>
 {% endfor %}
+{% else %}
+<p class="empty-state">No reflections yet.</p>
+{% endif %}
 
 <h2 class="section-title">Daily Journal</h2>
-{% for post in site.categories.Journal %}
-    <div style="margin-bottom: 1rem;">
-        <span class="post-meta">{{ post.date | date: "%b %d" }}</span> — 
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </div>
+{% if site.journals.size > 0 %}
+{% for post in site.journals %}
+<div class="post-item">
+    <span class="post-meta">{{ post.date | date: "%b %d" }}</span> —
+    <a href="{{ post.url }}">{{ post.title }}</a>
+</div>
 {% endfor %}
+{% else %}
+<p class="empty-state">No journal entries yet.</p>
+{% endif %}
