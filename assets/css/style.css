@@ -798,6 +798,12 @@ pre {
     border: 1px solid var(--border);
 }
 
+/* --- UTILITIES --- */
+/* Hide desktop controls on mobile */
+.mobile-only {
+    display: none;
+}
+
 /* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
     :root {
@@ -909,11 +915,6 @@ pre {
     .mobile-only {
         display: block;
     }
-}
-
-/* Mobile Only Elements - Hidden by Default */
-.mobile-only {
-    display: none;
 }
 
 /* --- MOBILE FAB (Floating Action Button) --- */
