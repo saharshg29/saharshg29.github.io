@@ -1,0 +1,164 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Resume for Saharsh Gupta
+% Final Version - Optimized for Data Science & MLE Roles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\usepackage{ragged2e}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% --- METADATA ---
+\hypersetup{
+  pdftitle={Resume - Saharsh Gupta},
+  pdfauthor={Saharsh Gupta},
+  pdfkeywords={Machine Learning Engineer, Data Scientist, LLM, RAG, Python, PyTorch, TensorFlow, Full-Stack},
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+% --- PAGE & STYLE CONFIGURATION ---
+\geometry{left=1.8cm, top=1.5cm, right=1.8cm, bottom=1.5cm} 
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% --- SECTION HEADER FORMATTING ---
+\titleformat{\section}{
+  \vspace{4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+% --- CUSTOM COMMANDS FOR RESUME ITEMS ---
+\newcommand{\resumeSubheading}[4]{
+\vspace{1.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\small{#4}} \\
+        \textit{\small{#3}} &  \small{#2}
+    \end{tabular*}
+    \vspace{-1mm}
+}
+
+% --- LIST SPACING ADJUSTMENTS ---
+\setlist[itemize]{leftmargin=*, labelsep=5pt, itemsep=3pt, topsep=2pt}
+
+
+%-------------------------------------------
+%%%%%%  RESUME CONTENT STARTS HERE  %%%%%%%%
+%-------------------------------------------
+\begin{document}
+
+%---------- HEADING ----------
+\begin{center}
+    \textbf{\Huge Saharsh Gupta} \\ \vspace{3pt}
+    \href{mailto:saharshg29@gmail.com}{\faEnvelope\ saharshg29@gmail.com} \quad \textbullet \quad
+    +91 8827075174 \quad \textbullet \quad
+    \href{https://in.linkedin.com/in/saharsh-gupta-768497205}{\faLinkedin\ LinkedIn} \quad \textbullet \quad
+    \href{https://github.com/saharshg29}{\faGithub\ GitHub}
+\end{center}
+
+%---------- EDUCATION ----------
+\section{Education}
+\begin{itemize}
+    \resumeSubheading
+    {\textbf{B.Tech, Computer Science}}{ 2025}
+    {Vel Tech University, Chennai}{CGPA: 8.3/10.0}
+\end{itemize}
+
+%---------- TECHNICAL SKILLS ----------
+\section{Technical Skills}
+\begin{tabular*}{\linewidth}{@{} >{\bfseries}l @{\extracolsep{\fill}} l}
+    Programming & \textbf{Python}, \textbf{JavaScript (ES6+)}, C/C++, \textbf{SQL} \\
+    Backend & \textbf{Node.js}, Express.js, \textbf{LangChain}, \textbf{PyTorch}, RESTful API Design \\
+    Frontend & \textbf{React.js}, HTML5/CSS3, Tailwind CSS, ShadCN, \textbf{Streamlit} \\
+    Databases & \textbf{MongoDB}, \textbf{MySQL}, PostgreSQL, Firebase \\
+    DevOps \& Tools & \textbf{Git}, Postman, \textbf{AWS SageMaker}, Jupyter \\
+\end{tabular*}
+
+%---------- WORK EXPERIENCE ----------
+\section{Work Experience}
+\begin{itemize}
+    \resumeSubheading
+    {Data Analyst (LLM Engineering)}{Aug 2024 -- Present}
+    {Turing.com}{Remote}
+    \begin{itemize}
+        \item Contributed to the development and release of \textbf{Apriel-1.5-15B-Thinker}, a compact model achieving performance on par with DeepSeek-R1-0528 at 1/40th the size.
+        \item Generated highly specialized data in the \textbf{JavaScript DOM domain for ServiceNow}, enhancing the model's ability to understand and automate complex platform-specific tasks.
+        \item Engineered and curated high-quality datasets to \textbf{fine-tune LLaMA LLMs}, directly improving code-generation performance for React.js and JavaScript-based applications.
+        \item Led a team of \textbf{8 C++ developers} in curating a large-scale benchmark dataset, establishing data quality standards and streamlining the collection pipeline to meet project deadlines.
+        \item Developed \textbf{automated evaluation pipelines} to assess model robustness and test new features, providing actionable metrics that guided development priorities in a fast-paced, agile environment.
+        \item Implemented and integrated \textbf{Gmail, Slack, and Calendar APIs} within a LangChain-based reinforcement learning environment (RL Gym) to expand the agent’s capabilities and training data.
+    \end{itemize}
+
+    \resumeSubheading
+    {Data Science Intern}{May 2024 -- Jul 2024}
+    {Tonik Bank}{Chennai, India}
+    \begin{itemize}
+        \item Architected and deployed \textbf{end-to-end inference pipelines} for speech models (VITS, Wav2Vec2), \textbf{reducing latency by over 30\%} through model quantization and code optimization.
+        \item Designed and implemented production-grade \textbf{RESTful APIs} to serve model predictions, enabling seamless integration with existing banking applications and product workflows.
+        \item Collaborated with cross-functional product and engineering teams to translate business requirements into technical specifications and deliver robust, production-ready solutions.
+    \end{itemize}
+\end{itemize}
+
+%---------- PROJECTS ----------
+\section{Projects}
+\begin{itemize}
+    \item \textbf{Full-Stack Legal AI Assistant (Vidhi AI)}
+    \begin{itemize}
+        \item Engineered a full-stack \textbf{Retrieval-Augmented Generation (RAG)} application to provide natural language answers from a large legal document corpus.
+        \item Developed the backend using Python and \textbf{LangChain}, and built a responsive \textbf{React.js} frontend for user interaction.
+        \item \textbf{Technologies:} RAG, LLM Fine-Tuning, React.js, Python, LangChain.
+    \end{itemize}
+
+    \item \textbf{End-to-End Diabetic Retinopathy Detection System}
+    \begin{itemize}
+        \item Built and trained a CNN model to classify retinopathy, achieving \textbf{95\% AUC} on a \textbf{30,000+ image dataset} by solving severe class imbalance with data augmentation and SMOTE.
+        \item Designed and deployed the complete model as an interactive web application using \textbf{Streamlit}, allowing for real-time analysis of uploaded fundus images.
+        \item \textbf{Technologies:} TensorFlow, Scikit-learn, Pandas, Streamlit, Docker.
+    \end{itemize}
+    
+    \item \textbf{Full-Stack Marketplace for Recycled Goods (Scrap Squad)}
+    \begin{itemize}
+        \item Designed and developed a full-stack web application using the \textbf{MERN stack} (MongoDB, Express.js, React.js, Node.js) to create a marketplace for waste recycling.
+        \item Implemented RESTful APIs for complete CRUD operations and integrated \textbf{JWT-based authentication} for secure user sessions.
+        \item \textbf{Technologies:} React.js, Node.js, Express.js, MongoDB, JWT, REST APIs.
+    \end{itemize}
+\end{itemize}
+
+%---------- INTERACTIVE DEMOS & APPLICATIONS ----------
+\section{Interactive Demos \& Applications}
+\begin{itemize}
+    \item \textbf{Chain-of-Thought Explorer (\href{https://chain-of-thoughts.vercel.app/}{Live}):} Implemented and visualized Chain-of-Thought (CoT) reasoning on Llama models to improve logical task performance.
+    \item \textbf{Visual Transformer Demo (\href{https://visual-transformer.vercel.app/}{Live}):} An educational web app to demystify the inner workings of the Transformer architecture, including self-attention.
+    \item \textbf{LeetRoast (\href{https://leet-roast.vercel.app/}{Live}):} An interactive web app that generates humorous roasts of LeetCode profiles using a custom-prompted LLM via the Groq API.
+    \item \textbf{Synerge (\href{https://synerge-og8z.onrender.com/}{Live}):} A real-time multiplayer game built with \textbf{WebSockets (Socket.IO)} to test numerical and linguistic convergence between players.
+    \item \textbf{Fractal Visualizer (\href{https://fractall.vercel.app/}{Live}):} A pure JavaScript application demonstrating computational geometry concepts through interactive fractal generation.
+\end{itemize}
+
+%---------- LEADERSHIP & ACHIEVEMENTS ----------
+\section{Leadership \& Achievements}
+\begin{itemize}
+    \item \textbf{Top 0.5\% Rank}: Secured Top 400 rank out of 75,000+ participants in the national \textbf{Amazon ML Challenge 2024}.
+    \item \textbf{Peer-Reviewed Publication}: Authored a research paper on RAG systems accepted for presentation at the \textbf{ICAIC 2025 conference}.
+    \item \textbf{Technical Reviewer}: Selected as a reviewer for the \textbf{IEEE INDISCON 2025} conference (AI/ML track), evaluating the technical quality of peer submissions.
+    \item \textbf{GDSC Web Development Lead}: Led hands-on workshops on React, Node.js, and Git, mentoring students in building full-stack applications and fostering a collaborative learning environment.
+    \item \textbf{Hackathon Winner}: Achieved Top 3 ranks in national-level hackathons at premier institutes, including \textbf{IIT Roorkee} and \textbf{IIT Guwahati}, by rapidly prototyping and pitching innovative solutions.
+\end{itemize}
+
+\end{document}

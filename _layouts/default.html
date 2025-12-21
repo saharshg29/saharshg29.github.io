@@ -9,16 +9,22 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="/" style="font-weight: bold;">{{ site.title }}</a>
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="/" class="nav-logo">{{ site.title }}</a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/projects" class="nav-link">Projects</a>
+                <a href="/experience" class="nav-link">Experience</a>
+                <a href="/blogs" class="nav-link">Blogs</a>
+            </div>
         </nav>
     </header>
-    <main>
+    <main class="main-content">
         {{ content }}
     </main>
-    <footer>
-        <p class="post-meta">© {{ "now" | date: "%Y" }} — Written with intention.</p>
+    <footer class="site-footer">
+        <p>© {{ "now" | date: "%Y" }} Saharsh Gupta — Built with intention.</p>
     </footer>
 </body>
 

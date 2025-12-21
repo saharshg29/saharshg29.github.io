@@ -1,239 +1,77 @@
 ---
 layout: default
+title: Home
 ---
 
-<div class="controls-area">
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search garden..." autocomplete="off">
-    </div>
-    <div id="calendar-wrapper">
-        <div id="calendar-header">
-            <button id="prev-month">&lt;</button>
-            <span id="current-month-label"></span>
-            <button id="next-month">&gt;</button>
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Saharsh Gupta</h1>
+        <p class="hero-subtitle">Machine Learning Engineer & Full-Stack Developer</p>
+        <p class="hero-tagline">Building intelligent systems at the intersection of AI and software engineering.</p>
+        <div class="hero-links">
+            <a href="mailto:saharshg29@gmail.com" class="hero-link">Email</a>
+            <a href="https://in.linkedin.com/in/saharsh-gupta-768497205" class="hero-link" target="_blank">LinkedIn</a>
+            <a href="https://github.com/saharshg29" class="hero-link" target="_blank">GitHub</a>
         </div>
-        <div id="calendar-grid"></div>
     </div>
-</div>
+</section>
 
-<div class="tabs">
-    <button class="tab-button active" data-tab="all">All</button>
-    <button class="tab-button" data-tab="essays">Essays</button>
-    <button class="tab-button" data-tab="engineering">Engineering</button>
-    <button class="tab-button" data-tab="reflections">Reflections</button>
-    <button class="tab-button" data-tab="journals">Journal</button>
-</div>
-
-<div class="post-list">
-    <!-- Essays -->
-    {% for post in site.essays %}
-    <div class="post-item" data-category="essays" data-date="{{ post.date | date: '%Y-%m-%d' }}">
-        <span class="post-meta">
-            {% if post.status == 'seed' %}🌱{% elsif post.status == 'bud' %}🌿{% elsif post.status == 'evergreen' %}🌳{%
-            endif %}
-            {{ post.date | date: "%b %d" }}
-        </span>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <span class="category-label" data-tab="essays">Essay</span>
+<section class="section">
+    <h2 class="section-heading">Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-category">
+            <h3>Languages</h3>
+            <p>Python, JavaScript, C/C++, SQL</p>
+        </div>
+        <div class="skill-category">
+            <h3>ML & AI</h3>
+            <p>PyTorch, LangChain, RAG, LLM Fine-Tuning</p>
+        </div>
+        <div class="skill-category">
+            <h3>Backend</h3>
+            <p>Node.js, Express.js, RESTful APIs</p>
+        </div>
+        <div class="skill-category">
+            <h3>Frontend</h3>
+            <p>React.js, Tailwind CSS, Streamlit</p>
+        </div>
+        <div class="skill-category">
+            <h3>Databases</h3>
+            <p>MongoDB, MySQL, PostgreSQL</p>
+        </div>
+        <div class="skill-category">
+            <h3>Tools</h3>
+            <p>Git, AWS SageMaker, Docker</p>
+        </div>
     </div>
-    {% endfor %}
+</section>
 
-    <!-- Engineering -->
-    {% for post in site.engineering %}
-    <div class="post-item" data-category="engineering" data-date="{{ post.date | date: '%Y-%m-%d' }}">
-        <span class="post-meta">
-            {% if post.status == 'seed' %}🌱{% elsif post.status == 'bud' %}🌿{% elsif post.status == 'evergreen' %}🌳{%
-            endif %}
-            {{ post.date | date: "%b %d" }}
-        </span>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <span class="category-label" data-tab="engineering">Engineering</span>
+<section class="section">
+    <h2 class="section-heading">Featured Projects</h2>
+    <div class="projects-grid">
+        <a href="/projects" class="project-card">
+            <h3>Vidhi AI</h3>
+            <p>Full-stack RAG application for legal document Q&A using LangChain and React.js</p>
+        </a>
+        <a href="/projects" class="project-card">
+            <h3>Diabetic Retinopathy Detection</h3>
+            <p>CNN model achieving 95% AUC on 30,000+ images, deployed via Streamlit</p>
+        </a>
+        <a href="/projects" class="project-card">
+            <h3>Chain-of-Thought Explorer</h3>
+            <p>Interactive visualization of CoT reasoning in Llama models</p>
+        </a>
     </div>
-    {% endfor %}
-
-    <!-- Reflections -->
-    {% for post in site.reflections %}
-    <div class="post-item" data-category="reflections" data-date="{{ post.date | date: '%Y-%m-%d' }}">
-        <span class="post-meta">
-            {% if post.status == 'seed' %}🌱{% elsif post.status == 'bud' %}🌿{% elsif post.status == 'evergreen' %}🌳{%
-            endif %}
-            {{ post.date | date: "%b %d" }}
-        </span>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <span class="category-label" data-tab="reflections">Reflection</span>
+    <div class="section-cta">
+        <a href="/projects" class="cta-link">View All Projects →</a>
     </div>
-    {% endfor %}
+</section>
 
-    <!-- Journals -->
-    {% for post in site.journals %}
-    <div class="post-item" data-category="journals" data-date="{{ post.date | date: '%Y-%m-%d' }}">
-        <span class="post-meta">
-            {% if post.status == 'seed' %}🌱{% elsif post.status == 'bud' %}🌿{% elsif post.status == 'evergreen' %}🌳{%
-            endif %}
-            {{ post.date | date: "%b %d" }}
-        </span>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <span class="category-label" data-tab="journals">Journal</span>
-    </div>
-    {% endfor %}
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Elements
-        const tabs = document.querySelectorAll('.tab-button');
-        const posts = document.querySelectorAll('.post-item');
-        const labels = document.querySelectorAll('.category-label');
-        const searchInput = document.getElementById('search-input');
-        const calendarGrid = document.getElementById('calendar-grid');
-        const monthLabel = document.getElementById('current-month-label');
-        const prevBtn = document.getElementById('prev-month');
-        const nextBtn = document.getElementById('next-month');
-
-        // State
-        let currentFilter = {
-            category: 'all',
-            search: '',
-            date: null
-        };
-
-        let currentDate = new Date();
-
-        // --- Core Filtering Logic ---
-        function applyFilters() {
-            // Update Tab UI
-            tabs.forEach(t => t.classList.remove('active'));
-            const activeTab = document.querySelector(`.tab-button[data-tab="${currentFilter.category}"]`);
-            if (activeTab) activeTab.classList.add('active');
-
-            posts.forEach(post => {
-                const category = post.getAttribute('data-category');
-                const date = post.getAttribute('data-date');
-                const text = post.innerText.toLowerCase();
-                const label = post.querySelector('.category-label');
-
-                // Checks
-                const matchesCategory = currentFilter.category === 'all' || currentFilter.category === category;
-                const matchesSearch = text.includes(currentFilter.search.toLowerCase());
-                const matchesDate = currentFilter.date === null || currentFilter.date === date;
-
-                if (matchesCategory && matchesSearch && matchesDate) {
-                    post.style.display = 'flex';
-                    // Show label only if in 'all' view AND not filtered by explicit other search
-                    if (currentFilter.category === 'all') {
-                        if (label) label.style.display = 'inline-block';
-                    } else {
-                        if (label) label.style.display = 'none';
-                    }
-                } else {
-                    post.style.display = 'none';
-                }
-            });
-
-            // Re-render calendar to show selection state
-            renderCalendar(currentDate);
-        }
-
-        // --- Event Listeners ---
-
-        // Tabs
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                currentFilter.category = tab.getAttribute('data-tab');
-                currentFilter.date = null; // Clear date filter when switching tabs? Or keep? Let's clear for UX clarity.
-                applyFilters();
-            });
-        });
-
-        labels.forEach(label => {
-            label.addEventListener('click', (e) => {
-                e.stopPropagation();
-                currentFilter.category = label.getAttribute('data-tab');
-                applyFilters();
-            });
-        });
-
-        // Search
-        searchInput.addEventListener('input', (e) => {
-            currentFilter.search = e.target.value;
-            applyFilters();
-        });
-
-        // --- Calendar Logic ---
-        function getPostDates() {
-            const dates = new Set();
-            posts.forEach(p => {
-                const date = p.getAttribute('data-date');
-                if (date && date !== '') dates.add(date);
-            });
-            return dates;
-        }
-
-        function renderCalendar(date) {
-            calendarGrid.innerHTML = '';
-            const year = date.getFullYear();
-            const month = date.getMonth();
-
-            const firstDay = new Date(year, month, 1);
-            const lastDay = new Date(year, month + 1, 0);
-            const daysInMonth = lastDay.getDate();
-            const startingDay = firstDay.getDay(); // 0 is Sunday
-
-            monthLabel.textContent = date.toLocaleDateString('default', { month: 'long', year: 'numeric' });
-
-            const postDates = getPostDates();
-
-            // Empty slots
-            for (let i = 0; i < startingDay; i++) {
-                const empty = document.createElement('div');
-                empty.className = 'calendar-day empty';
-                calendarGrid.appendChild(empty);
-            }
-
-            // Days
-            for (let i = 1; i <= daysInMonth; i++) {
-                const dayDiv = document.createElement('div');
-                dayDiv.className = 'calendar-day';
-                dayDiv.textContent = i;
-
-                // Format YYYY-MM-DD
-                const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
-
-                if (postDates.has(dateString)) {
-                    const dot = document.createElement('span');
-                    dot.className = 'red-dot';
-                    dayDiv.appendChild(dot);
-                    dayDiv.classList.add('has-post');
-
-                    dayDiv.addEventListener('click', () => {
-                        if (currentFilter.date === dateString) {
-                            currentFilter.date = null; // Toggle off
-                        } else {
-                            currentFilter.date = dateString;
-                        }
-                        applyFilters();
-                    });
-                }
-
-                if (currentFilter.date === dateString) {
-                    dayDiv.classList.add('selected-day');
-                }
-
-                calendarGrid.appendChild(dayDiv);
-            }
-        }
-
-        prevBtn.addEventListener('click', () => {
-            currentDate.setMonth(currentDate.getMonth() - 1);
-            renderCalendar(currentDate);
-        });
-
-        nextBtn.addEventListener('click', () => {
-            currentDate.setMonth(currentDate.getMonth() + 1);
-            renderCalendar(currentDate);
-        });
-
-        // Initialize
-        renderCalendar(currentDate);
-    });
-</script>
+<section class="section">
+    <h2 class="section-heading">Highlights</h2>
+    <ul class="highlights-list">
+        <li><strong>Top 0.5%</strong> in Amazon ML Challenge 2024 (400/75,000+)</li>
+        <li><strong>Technical Reviewer</strong> for IEEE INDISCON 2025 (AI/ML track)</li>
+        <li><strong>Hackathon Winner</strong> at IIT Roorkee & IIT Guwahati</li>
+    </ul>
+</section>
