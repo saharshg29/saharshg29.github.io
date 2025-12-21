@@ -2,6 +2,8 @@ title: Saharsh Gupta
 description: Engineering essays and personal reflections.
 author: Saharsh Gupta
 theme: minima 
+url: ""
+baseurl: ""
 plugins:
   - jekyll-seo-tag 
 
