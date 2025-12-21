@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+<div id="progress-bar"></div>
 <article>
     <header>
         <div class="post-meta">{{ page.date | date: "%B %d, %Y" }} • {{ page.categories | join: ", " }}</div>
@@ -10,3 +11,12 @@ layout: default
         {{ content }}
     </div>
 </article>
+
+<script>
+    window.onscroll = function () {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        document.getElementById("progress-bar").style.width = scrolled + "%";
+    };
+</script>

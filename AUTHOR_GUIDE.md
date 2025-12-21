@@ -23,6 +23,7 @@ layout: post
 title: "Your Title Here"
 date: 2025-12-23
 description: "A short summary for the index page."
+status: "seed" # Options: seed, bud, evergreen
 ---
 ```
 
