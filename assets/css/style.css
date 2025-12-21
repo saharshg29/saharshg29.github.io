@@ -2,33 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-    --bg: #fcfcfc;
-    --text: #2c2c2c;
-    --text-light: #737373;
-    --accent: #111;
-    --border: #eaeaea;
-    --width: 640px;
-    /* Tighter width for better reading experience */
+    --bg: #fff;
+    --text: #333;
+    --text-meta: #999;
+    --accent: #000;
+    --width: 600px;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --bg: #111;
-        --text: #e1e1e1;
-        --text-light: #888;
+        --text: #eee;
+        --text-meta: #666;
         --accent: #fff;
-        --border: #333;
     }
 }
 
 body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
     margin: 0;
-    padding: 2rem 1rem;
-    -webkit-font-smoothing: antialiased;
+    padding: 4rem 2rem;
     font-size: 16px;
 }
 
@@ -47,100 +43,92 @@ h3,
     font-family: 'Libre Baskerville', serif;
     font-weight: 700;
     color: var(--accent);
-    margin-top: 3rem;
-    margin-bottom: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
 }
 
 h1 {
-    font-size: 2.2rem;
-    letter-spacing: -0.02em;
+    font-size: 2rem;
+    letter-spacing: -0.01em;
+    margin-top: 0;
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    margin-top: 3rem;
 }
 
 /* Links */
 a {
     color: var(--text);
     text-decoration: none;
-    border-bottom: 1px solid var(--border);
-    transition: all 0.2s ease;
+    border-bottom: 1px solid transparent;
+    /* Hidden by default */
+    transition: border-color 0.2s;
 }
 
 a:hover {
-    color: var(--accent);
     border-bottom-color: var(--accent);
 }
 
-/* Layout Utilities */
+/* Post List (Minimal) */
 .post-item {
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
-    padding: 0.5rem 0;
-    border-bottom: 1px dashed var(--border);
-}
-
-.post-item:last-child {
-    border-bottom: none;
+    padding: 0.25rem 0;
+    margin-bottom: 0.25rem;
 }
 
 .post-meta {
     font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    color: var(--text-light);
-    font-feature-settings: "tnum";
+    font-size: 0.8rem;
+    color: var(--text-meta);
+    width: 60px;
+    /* Fixed width for alignment */
     flex-shrink: 0;
-    margin-right: 1.5rem;
 }
 
 .post-item a {
-    border-bottom: none;
-}
-
-.post-item a:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
+    font-weight: 500;
 }
 
 .section-title {
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
     font-size: 0.75rem;
-    color: var(--text-light);
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-meta);
     margin-top: 4rem;
-    margin-bottom: 1.5rem;
-    font-family: 'Inter', sans-serif;
+    margin-bottom: 1rem;
     font-weight: 600;
-}
-
-.empty-state {
-    color: var(--text-light);
-    font-style: italic;
-    font-size: 0.9rem;
+    border: none;
+    padding: 0;
 }
 
 article {
     margin-bottom: 6rem;
 }
 
+/* Post Content */
 article p {
     margin-bottom: 1.5rem;
-    font-size: 1.05rem;
 }
 
-/* Code Blocks */
+article h2 {
+    margin-top: 2.5rem;
+    font-size: 1.4rem;
+}
+
 pre {
-    background: var(--bg);
-    border: 1px solid var(--border);
+    background: #f4f4f4;
     padding: 1rem;
     overflow-x: auto;
-    border-radius: 6px;
+    border-radius: 4px;
     font-size: 0.85rem;
-    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-    line-height: 1.5;
+    font-family: monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+    pre {
+        background: #222;
+    }
 }

@@ -9,6 +9,8 @@ plugins:
 
 permalink: /:collection/:title/
 
+collections_dir: content
+
 collections:
   essays:
     output: true
