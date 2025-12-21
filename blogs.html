@@ -46,7 +46,7 @@ layout: default
         <div class="post-item reveal" style="transition-delay: {{ forloop.index0 | times: 50 | plus: 100 }}ms;"
             data-category="engineering" data-date="{{ post.date | date: '%Y-%m-%d' }}">
             <span class="post-meta">
-                {% if post.status == 'seed' %"><span class="status status-seed">Seed</span>{% elsif post.status == 'bud'
+                {% if post.status == 'seed' %}<span class="status status-seed">Seed</span>{% elsif post.status == 'bud'
                 %}<span class="status status-bud">Bud</span>{% elsif post.status == 'evergreen' %}<span
                     class="status status-evergreen">Evergreen</span>{% endif %}
                 {{ post.date | date: "%b %d" }}
