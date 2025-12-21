@@ -754,3 +754,68 @@ pre {
     font-family: 'Menlo', monospace;
     border: 1px solid var(--border);
 }
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    :root {
+        --width: 95%;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .experience-date {
+        font-size: 0.8rem;
+        opacity: 0.7;
+    }
+
+    .controls-area {
+        flex-direction: column;
+    }
+
+    .tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #calendar-wrapper {
+        width: 100%;
+        max-width: none;
+    }
+
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+}

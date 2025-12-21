@@ -2,13 +2,14 @@ title: Saharsh Gupta
 description: Machine Learning Engineer & Full-Stack Developer. Building intelligent systems at the intersection of AI and software engineering.
 author: Saharsh Gupta
 theme: minima
-url: "https://saharshgupta.com" # Placeholder
+url: "https://saharshg29.github.io"
 baseurl: ""
 twitter_username: saharshg29
 github_username: saharshg29
-logo: /assets/logo.png # Placeholder
+google_analytics: "G-XXXXXXXXXX" # User can update this
 plugins:
-  - jekyll-seo-tag 
+  - jekyll-seo-tag
+  - jekyll-sitemap 
 
 permalink: /:collection/:title/
 
