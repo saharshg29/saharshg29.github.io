@@ -659,43 +659,50 @@ body {
     bottom: 4px;
 }
 
-/* Post List Scrollable */
+/* Post List Scrollable Box */
 .post-list-container {
     background: var(--bg-secondary);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 1.5rem;
-    border: 1px solid var(--border);
+    height: 450px;
+    /* Fixed height for stability */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
 }
 
 .post-list {
-    max-height: 400px;
-    /* Approx 5 items + padding */
+    flex: 1;
     overflow-y: auto;
     padding-right: 0.5rem;
 }
 
 /* Custom Scrollbar */
-.post-list::-webkit-scrollbar {
+.post-list::-webkit-scrollbar,
+.post-list-container::-webkit-scrollbar {
     width: 6px;
 }
 
-.post-list::-webkit-scrollbar-track {
+.post-list::-webkit-scrollbar-track,
+.post-list-container::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.post-list::-webkit-scrollbar-thumb {
+.post-list::-webkit-scrollbar-thumb,
+.post-list-container::-webkit-scrollbar-thumb {
     background: var(--border);
     border-radius: 10px;
 }
 
 #empty-state {
     text-align: center;
-    padding: 3rem 0;
+    padding: 4rem 0;
     color: var(--text-meta);
     font-size: 0.95rem;
 }
 
-
+/* Tab Buttons */
 .tab-button {
     background: none;
     border: none;
@@ -716,30 +723,6 @@ body {
 .tab-button.active {
     background: var(--border);
     color: var(--accent);
-}
-
-/* Post List Container - Scrollable Box */
-.post-list-container {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem;
-    max-height: 400px;
-    overflow-y: auto;
-    margin-bottom: 2rem;
-}
-
-.post-list-container::-webkit-scrollbar {
-    width: 6px;
-}
-
-.post-list-container::-webkit-scrollbar-track {
-    background: var(--bg-secondary);
-}
-
-.post-list-container::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 3px;
 }
 
 .post-list-container::-webkit-scrollbar-thumb:hover {
