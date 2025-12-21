@@ -27,7 +27,7 @@ layout: default
 <div class="post-list">
     <!-- Essays -->
     {% for post in site.essays %}
-    <div class="post-item" data-category="essays" data-custom-date="{{ post.date }}">
+    <div class="post-item" data-category="essays" data-date="{{ post.date | date: '%Y-%m-%d' }}">
         <span class="post-meta">
             {% if post.status == 'seed' %}🌱{% elsif post.status == 'bud' %}🌿{% elsif post.status == 'evergreen' %}🌳{%
             endif %}
@@ -40,7 +40,7 @@ layout: default
 
     <!-- Engineering -->
     {% for post in site.engineering %}
-    <div class="post-item" data-category="engineering" data-custom-date="{{ post.date }}">
+    <div class="post-item" data-category="engineering" data-date="{{ post.date | date: '%Y-%m-%d' }}">
         <span class="post-meta">
             {% if post.status == 'seed' %}🌱{% elsif post.status == 'bud' %}🌿{% elsif post.status == 'evergreen' %}🌳{%
             endif %}
@@ -53,7 +53,7 @@ layout: default
 
     <!-- Reflections -->
     {% for post in site.reflections %}
-    <div class="post-item" data-category="reflections" data-custom-date="{{ post.date }}">
+    <div class="post-item" data-category="reflections" data-date="{{ post.date | date: '%Y-%m-%d' }}">
         <span class="post-meta">
             {% if post.status == 'seed' %}🌱{% elsif post.status == 'bud' %}🌿{% elsif post.status == 'evergreen' %}🌳{%
             endif %}
@@ -66,7 +66,7 @@ layout: default
 
     <!-- Journals -->
     {% for post in site.journals %}
-    <div class="post-item" data-category="journals" data-custom-date="{{ post.date }}">
+    <div class="post-item" data-category="journals" data-date="{{ post.date | date: '%Y-%m-%d' }}">
         <span class="post-meta">
             {% if post.status == 'seed' %}🌱{% elsif post.status == 'bud' %}🌿{% elsif post.status == 'evergreen' %}🌳{%
             endif %}
@@ -159,35 +159,12 @@ layout: default
             applyFilters();
         });
 
-        // --- Date Conversion Helper ---
-        function parseDDMMYYYY(dateStr) {
-            if (!dateStr || dateStr === '') return null;
-            // Try dd-mm-yyyy format first
-            const parts = dateStr.split('-');
-            if (parts.length === 3 && parts[0].length <= 2) {
-                const day = parts[0].padStart(2, '0');
-                const month = parts[1].padStart(2, '0');
-                const year = parts[2];
-                return `${year}-${month}-${day}`; // Convert to YYYY-MM-DD
-            }
-            return null;
-        }
-
-        // Process all posts and add normalized data-date attribute
-        posts.forEach(post => {
-            const customDate = post.getAttribute('data-custom-date');
-            const normalizedDate = parseDDMMYYYY(customDate);
-            if (normalizedDate) {
-                post.setAttribute('data-date', normalizedDate);
-            }
-        });
-
         // --- Calendar Logic ---
         function getPostDates() {
             const dates = new Set();
             posts.forEach(p => {
                 const date = p.getAttribute('data-date');
-                if (date) dates.add(date);
+                if (date && date !== '') dates.add(date);
             });
             return dates;
         }
