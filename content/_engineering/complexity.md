@@ -11,3 +11,4 @@ In software engineering, we often treat 'speed' as the primary metric. But after
 function calculate(v) {
   return v.map(i => i * 2); // Readable
 }
+```
