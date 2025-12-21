@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "The Silent Cost of Technical Debt"
+title: "My Post"
+date: 21-12-2025
 categories: Engineering
 description: A reflection on why the fastest code isn't always the best code.
 ---
