@@ -21,6 +21,12 @@ layout: default
                 <button class="tab-button" data-tab="journals">Journal</button>
             </div>
         </div>
+
+        <!-- Mobile Search (Visible on mobile only) -->
+        <div class="search-box mobile-only" style="margin-top: 1.5rem;">
+            <input type="text" id="search-input-mobile" class="search-input-sync" placeholder="Search garden..."
+                autocomplete="off">
+        </div>
     </div>
 
     <!-- Desktop Calendar (hidden on mobile) -->
@@ -52,10 +58,7 @@ layout: default
         <button id="close-sheet" aria-label="Close Filters">&times;</button>
     </div>
     <div class="sheet-content">
-        <div class="search-box">
-            <input type="text" id="search-input-mobile" class="search-input-sync" placeholder="Search garden..."
-                autocomplete="off">
-        </div>
+        <!-- Search is now in the main header -->
         <div class="sheet-tabs">
             <button class="tab-button active" data-tab="all">All</button>
             <button class="tab-button" data-tab="essays">Essays</button>

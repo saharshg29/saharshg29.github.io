@@ -918,6 +918,7 @@ pre {
 }
 
 /* --- MOBILE FAB (Floating Action Button) --- */
+/* --- MOBILE FAB (Floating Action Button) --- */
 #filter-fab {
     position: fixed;
     bottom: 2rem;
@@ -931,10 +932,18 @@ pre {
     cursor: pointer;
     z-index: 1000;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    display: flex;
+    display: none;
+    /* Hidden by default on desktop */
     align-items: center;
     justify-content: center;
     transition: transform 0.2s, box-shadow 0.2s;
+}
+
+@media (max-width: 768px) {
+    #filter-fab {
+        display: flex;
+        /* Visible only on mobile */
+    }
 }
 
 #filter-fab:hover {
