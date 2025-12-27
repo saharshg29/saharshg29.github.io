@@ -1,3 +1,4 @@
 /vendor
 /_site
 /gemfile.lock
+.DS_Store
