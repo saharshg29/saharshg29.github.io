@@ -3,6 +3,12 @@ layout: default
 title: Experience
 ---
 
+{% if site.page_visibility.experience == false %}
+<script>window.location.href = "{{ '/blogs' | relative_url }}";</script>
+<meta http-equiv="refresh" content="0; url={{ '/blogs' | relative_url }}">
+<div style="padding: 2rem; text-align: center;">Redirecting...</div>
+{% else %}
+
 <section class="page-header reveal">
     <h1>Experience</h1>
     <p class="page-subtitle">Where I've worked and what I've learned.</p>
@@ -14,7 +20,7 @@ title: Experience
     <div class="experience-item">
         <div class="experience-header">
             <h3>Data Analyst (LLM Engineering)</h3>
-            <span class="experience-date">Aug 2024 — Present</span>
+            <span class="experience-date">Aug 2024 - Present</span>
         </div>
         <p class="experience-company">Turing.com · Remote</p>
         <ul class="experience-list">
@@ -33,7 +39,7 @@ title: Experience
     <div class="experience-item">
         <div class="experience-header">
             <h3>Data Science Intern</h3>
-            <span class="experience-date">May 2024 — Jul 2024</span>
+            <span class="experience-date">May 2024 - Jul 2024</span>
         </div>
         <p class="experience-company">Tonik Bank · Chennai, India</p>
         <ul class="experience-list">
@@ -63,4 +69,4 @@ title: Experience
         <li><strong>GDSC Web Dev Lead</strong>: Led React, Node.js, and Git workshops.</li>
         <li><strong>Hackathon Winner</strong>: Top 3 at IIT Roorkee and IIT Guwahati.</li>
     </ul>
-</section>
+</section>{% endif %}

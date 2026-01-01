@@ -3,6 +3,12 @@ layout: default
 title: "Now"
 ---
 
+{% if site.page_visibility.now == false %}
+<script>window.location.href = "{{ '/blogs' | relative_url }}";</script>
+<meta http-equiv="refresh" content="0; url={{ '/blogs' | relative_url }}">
+<div style="padding: 2rem; text-align: center;">Redirecting...</div>
+{% else %}
+
 <section class="page-header reveal">
     <h1>/now</h1>
     <p class="page-subtitle">Things I'm actively working on</p>
@@ -22,7 +28,8 @@ title: "Now"
 
 <section class="section reveal reveal-2">
     <h2 class="section-heading">Reading</h2>
-    <p>Currently deep into <em>"Discrete Mathematics and its Application"</em> by Kennith H. Rossen and <em>"The Art and Craft of Problem Solving"</em>.</p>
+    <p>Currently deep into <em>"Discrete Mathematics and its Application"</em> by Kennith H. Rossen and <em>"The Art and
+            Craft of Problem Solving"</em>.</p>
 </section>
 
 <section class="section reveal reveal-3">
@@ -77,4 +84,4 @@ title: "Now"
             box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
         }
     }
-</style>
+</style>{% endif %}

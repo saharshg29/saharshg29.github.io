@@ -23,11 +23,13 @@
         <nav class="nav-container">
             <a href="/" class="nav-logo">{{ site.title }}</a>
             <div class="nav-links">
-                <a href="/" class="nav-link">Home</a>
-                <a href="/projects" class="nav-link">Projects</a>
-                <a href="/experience" class="nav-link">Experience</a>
-                <a href="/blogs" class="nav-link">Blogs</a>
-                <a href="/now" class="nav-link">Now</a>
+                {% if site.page_visibility.home != false %}<a href="/" class="nav-link">Home</a>{% endif %}
+                {% if site.page_visibility.projects != false %}<a href="/projects" class="nav-link">Projects</a>{% endif
+                %}
+                {% if site.page_visibility.experience != false %}<a href="/experience" class="nav-link">Experience</a>{%
+                endif %}
+                {% if site.page_visibility.blogs != false %}<a href="/blogs" class="nav-link">Blogs</a>{% endif %}
+                {% if site.page_visibility.now != false %}<a href="/now" class="nav-link">Now</a>{% endif %}
             </div>
         </nav>
     </header>
@@ -35,7 +37,7 @@
         {{ content }}
     </main>
     <footer class="site-footer">
-        <p>© {{ "now" | date: "%Y" }} Saharsh Gupta — Built with intention.</p>
+        <p>© {{ "now" | date: "%Y" }} Saharsh Gupta - Built with intention.</p>
         <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.5;">Press <kbd
                 style="border: 1px solid var(--border); padding: 2px 4px; border-radius: 4px;">Cmd</kbd> + <kbd
                 style="border: 1px solid var(--border); padding: 2px 4px; border-radius: 4px;">K</kbd> to search</p>

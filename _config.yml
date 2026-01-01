@@ -11,6 +11,13 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap 
 
+page_visibility:
+  home: false
+  projects: false
+  experience: false
+  blogs: true
+  now: false 
+
 permalink: /:collection/:title/
 
 collections_dir: content

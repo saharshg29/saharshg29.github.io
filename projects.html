@@ -3,6 +3,12 @@ layout: default
 title: Projects
 ---
 
+{% if site.page_visibility.projects == false %}
+<script>window.location.href = "{{ '/blogs' | relative_url }}";</script>
+<meta http-equiv="refresh" content="0; url={{ '/blogs' | relative_url }}">
+<div style="padding: 2rem; text-align: center;">Redirecting...</div>
+{% else %}
+
 <section class="page-header">
     <h1>Projects</h1>
     <p class="page-subtitle">A collection of things I've built.</p>
@@ -12,7 +18,7 @@ title: Projects
     <h2 class="section-heading">Featured</h2>
 
     <div class="project-detail">
-        <h3>Vidhi AI — Legal AI Assistant</h3>
+        <h3>Vidhi AI - Legal AI Assistant</h3>
         <p>Engineered a full-stack <strong>Retrieval-Augmented Generation (RAG)</strong> application to provide natural
             language answers from a large legal document corpus. Built the backend using Python and LangChain, with a
             responsive React.js frontend.</p>
@@ -28,7 +34,7 @@ title: Projects
     </div>
 
     <div class="project-detail">
-        <h3>Scrap Squad — Recycled Goods Marketplace</h3>
+        <h3>Scrap Squad - Recycled Goods Marketplace</h3>
         <p>Designed and developed a full-stack web application using the MERN stack to create a marketplace for waste
             recycling. Implemented RESTful APIs and JWT-based authentication.</p>
         <p class="project-tech"><strong>Tech:</strong> React.js, Node.js, Express.js, MongoDB, JWT</p>
@@ -59,4 +65,4 @@ title: Projects
             <span>Interactive fractal generation</span>
         </div>
     </div>
-</section>
+</section>{% endif %}
